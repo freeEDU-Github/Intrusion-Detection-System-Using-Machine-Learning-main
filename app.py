@@ -63,11 +63,11 @@ st.text(
 st.dataframe(sample_data)
 
 #Features of our data
-bwd_packet_length = st.number_input("Bwd Packet Length Std") #Bwd Packet Length Std
-fwd_header_length = st.number_input("Fwd Header Length") #Fwd Header Length
-psh_flag_count = st.number_input("PSH Flag Count") #PSH Flag Count
-total_length_of_fwd_packets = st.number_input("Total Length of Fwd Packets") #Total Length of Fwd Packets
-average_packet_size = st.number_input("Average Packet Size") #Average Packet Size
+bwd_packet_length = st.number_input(label = "Bwd Packet Length Std", step=1e-10, format="%.9f") #Bwd Packet Length Std
+fwd_header_length = st.number_input("Fwd Header Length", step=1e-10, format="%.9f") #Fwd Header Length
+psh_flag_count = st.number_input("PSH Flag Count", step=1e-10, format="%.9f") #PSH Flag Count
+total_length_of_fwd_packets = st.number_input("Total Length of Fwd Packets", step=1e-10, format="%.9f") #Total Length of Fwd Packets
+average_packet_size = st.number_input("Average Packet Size", step=1e-10, format="%.9f") #Average Packet Size
 
 features = ['Bwd Packet Length Std', 'Fwd Header Length', 'PSH Flag Count', 'Total Length of Fwd Packets', 'Average Packet Size']
 
