@@ -4,6 +4,7 @@ import numpy as np
 import pickle as p
 from PIL import Image
 from sklearn.model_selection import train_test_split
+from xgboost import XGBClassifier
 
 df = pd.read_csv("data/final_df.csv")
 sample_data = pd.read_csv("data/sample.csv")
@@ -74,7 +75,7 @@ y = df['Label']
 
 # Training the data using XGBoost Classifier (80% for training, 20% for testing)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20)
-xgb_clf = DecisionTreeClassifier()
+xgb_clf = XGBClassifier()
 xgb_clf.fit(X_train,y_train)
 predict_val = xgb_clf.predict([[bwd_packet_length, fwd_header_length, psh_flag_count, total_length_of_fwd_packets, average_packet_size]])
 predict_val = float(predict_val)
