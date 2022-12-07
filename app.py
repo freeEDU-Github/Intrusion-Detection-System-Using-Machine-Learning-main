@@ -3,9 +3,7 @@ import streamlit as st
 import numpy as np
 import pickle as p
 from PIL import Image
-
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier
 
 df = pd.read_csv("data/final_df.csv")
 sample_data = pd.read_csv("data/sample.csv")
