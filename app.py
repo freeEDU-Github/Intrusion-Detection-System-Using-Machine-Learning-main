@@ -61,7 +61,7 @@ st.text(
 st.dataframe(sample_data)
 
 #Features of our data
-bwd_packet_length = st.number_input(label = "Bwd Packet Length Std", step=1e-10, format="%.9f") #Bwd Packet Length Std
+bwd_packet_length = st.number_input("Bwd Packet Length Std", step=1e-10, format="%.9f") #Bwd Packet Length Std
 fwd_header_length = st.number_input("Fwd Header Length", step=1e-10, format="%.9f") #Fwd Header Length
 psh_flag_count = st.number_input("PSH Flag Count", step=1e-10, format="%.9f") #PSH Flag Count
 total_length_of_fwd_packets = st.number_input("Total Length of Fwd Packets", step=1e-10, format="%.9f") #Total Length of Fwd Packets
@@ -74,7 +74,7 @@ X = df[features]
 y = df['Label']
 
 # Training the data using XGBoost Classifier (80% for training, 20% for testing)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20)
+X_train, X_test, y_train, y_test = train_test_split(X.values, y.values, test_size=0.20)
 xgb_clf = XGBClassifier()
 xgb_clf.fit(X_train,y_train)
 predict_val = xgb_clf.predict([[bwd_packet_length, fwd_header_length, psh_flag_count, total_length_of_fwd_packets, average_packet_size]])
