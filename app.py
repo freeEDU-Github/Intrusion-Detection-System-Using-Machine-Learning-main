@@ -2,7 +2,6 @@ import pandas as pd
 import streamlit as st
 import numpy as np
 import pickle as p
-import lightgbm as lgb
 from PIL import Image
 
 from sklearn.model_selection import train_test_split
