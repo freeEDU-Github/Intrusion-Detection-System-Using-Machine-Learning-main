@@ -6,6 +6,7 @@ from PIL import Image
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 
+#Read data for modeling and sample data
 df = pd.read_csv("data/final_df.csv")
 sample_data = pd.read_csv("data/sample.csv")
 
