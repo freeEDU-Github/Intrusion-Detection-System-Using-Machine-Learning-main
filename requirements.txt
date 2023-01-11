@@ -4,3 +4,5 @@ streamlit
 xgboost
 sklearn
 scikit-learn
+catboost
+lightgbm

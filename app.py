@@ -43,8 +43,6 @@ st.markdown(
     - K-means
     """
 )
-
-st.write("The best performing algorithm is XGBoost Classifier, which is used in this demonstration.")
 image = Image.open('bestmodel.jpg')
 st.image(image, caption='Leading Model among the Algorithms')
 
