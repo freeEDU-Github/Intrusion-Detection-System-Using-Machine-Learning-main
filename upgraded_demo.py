@@ -10,6 +10,7 @@ from sklearn.model_selection import train_test_split
 #Read data for modeling and sample data
 from xgboost import XGBClassifier
 
+#Read data for modeling and sample data
 df = pd.read_csv("data/final_df.csv")
 sample_data = pd.read_csv("data/sample.csv")
 
@@ -18,11 +19,44 @@ st.title('LCCDE: A Decision-Based Ensemble Framework for Intrusion Detection in 
 st.markdown("***")
 
 st.header(
-'Proposed ensemble model: Leader Class and Confidence Decision Ensemble (LCCDE)')
+          'Proposed ensemble model: Leader Class and Confidence Decision Ensemble (LCCDE)')
+
+st.markdown("LCCDE aims to achieve optimal model performance by identifying the best-performing base ML model with the highest prediction confidence for each class.")
+
+st.markdown("***")
+
+st.subheader("Implementation")
+st.markdown("**Dataset**")
+st.write("CICIDS2017 dataset, a popular network traffic dataset for intrusion detection problems. Publicly available at: https://www.unb.ca/cic/datasets/ids-2017.html.\n"
+         "The dataset will be divided into eighty percent (80%) training sets and twenty percent (20%) validation sets.")
+
+st.markdown("**Data Preprocessing**")
+st.write("The CICIDS2017 dataset will undergo to data preprocessing. Since the dataset has 77 features, XGBoost "
+         "feature importance has been used to know which features have a larger effect on the model.")
+
+st.markdown("**Machine Learning Algorithms**")
+st.markdown(
+    """
+    - Decision tree (DT)
+    - Random forest (RF)
+    - Extra trees (ET)
+    - XGBoost
+    - LightGBM
+    - CatBoost
+    - Stacking
+    - K-means
+    """
+)
+
+image = Image.open('bestmodel.jpg')
+st.image(image, caption='Leading Model among the Algorithms', width=None)
 
 st.markdown("***")
 
 st.subheader("Prediction")
+
+st.write("The prediction is done using LCCDE (Leader Class and Confidence Decision Ensemble) which takes into account the predictions and confidence scores of the individual models (LGBM, CatBoost and XGBoost).")
+
 st.write("You can test the sample data below")
 st.markdown(" Features of our data: ")
 st.text(
@@ -107,4 +141,3 @@ elif leader_class == 5:
 else:
     st.info("Label: WebAttack, Confidence: {:.2f}".format(leader_confidence))
 
-st.write("The prediction is done using LCCDE (Leader Class and Confidence Decision Ensemble) which takes into account the predictions and confidence scores of the individual models (LGBM, CatBoost and XGBoost).")
